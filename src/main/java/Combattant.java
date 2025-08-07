@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import lombok.*;
 
@@ -22,5 +23,9 @@ public class Combattant {
     public boolean equals(Object obj) {
         Combattant combattant = (Combattant) obj;
         return this.id == combattant.getId();
+    }
+
+    public void addTitle(String title) {
+        this.titres.add(title);
     }
 }
