@@ -12,4 +12,8 @@ public class Combattant {
     private String nomDeCombattant;
     private double poids;
     private List<String> titres;
+    private int victoires;
+    private int defaits;
+    private int egalites;
+    private int points;
 }
