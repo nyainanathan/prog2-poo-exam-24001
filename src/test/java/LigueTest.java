@@ -16,8 +16,9 @@ public class LigueTest {
     Combattant combattant1 = new Combattant("1", "nom1" , "prenom1", "nomCombattant1", 67.2, titres1, 3, 1, 3, 12);
     Combattant combattant2 = new Combattant("2", "nom2" , "prenom2", "nomCombattant2", 67.3, titres2, 3, 0, 4, 13);
     Combattant combattant3 = new Combattant("3", "nom3" , "prenom3", "nomCombattant3", 67.4, titres1, 0, 6, 1, 1);
+    Combattant combattant4 = new Combattant("4", "nom4" , "prenom4", "nomCombattant4", 67.9, null, 0, 0, 0, 0);
 
-    Ligue ligue1 = new Ligue("Ligue 1", List.of(combattant1, combattant2, combattant3), matches);
+    Ligue ligue1 = new Ligue("Ligue 1", List.of(combattant1, combattant2, combattant3, combattant4), matches);
     @BeforeEach
     public void setUp() {
         titres1.add("Titre1 1");
@@ -74,6 +75,8 @@ public class LigueTest {
     public void get_every_matches_of_figther_ok(){
         assertEquals(3, ligue1.getMatchDeCombattant(combattant1).size());
         assertFalse(ligue1.getMatchDeCombattant(combattant2).size() == 4);
+        assertEquals(0, ligue1.getMatchDeCombattant(combattant4).size());
+        assertTrue(ligue1.getMatchDeCombattant(combattant3).contains(ligue1.getMatches().get(1)));
     }
 
 
