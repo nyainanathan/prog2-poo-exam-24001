@@ -11,6 +11,15 @@ public class MatchPourUnTitre extends Match {
     }
 
     @Override
+    public String toString() {
+        if(this.isEgalite()){
+            return "Personne n'emporte le titre dommage ... une autre fois peut-etre ... ou non";
+        } else {
+            return this.getGagnant().getNomDeCombattant() + " L'emporte avec briooo ... il gagne donc le titre de " + this.titreAGagner;
+        }
+    }
+
+    @Override
     public void terminer() {
         if(this.isEgalite()){
             getCombattants().forEach((combattant)->{
@@ -28,5 +37,8 @@ public class MatchPourUnTitre extends Match {
                 }
             });
         }
+        System.out.println(this.toString());
     }
+
+
 }

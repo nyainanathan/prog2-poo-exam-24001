@@ -29,5 +29,6 @@ public class MatchOfficiel extends Match {
                 }
             });
         }
+        System.out.println(this.toString());
     }
 }
