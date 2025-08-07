@@ -8,7 +8,26 @@ public class MatchOfficiel extends Match {
     }
 
     @Override
-    public void terminer() {
+    public String toString() {
+        return "Le match officiel se termine: " + getGagnant().getNomDeCombattant() + " l'emporte et emmene avec lui les 3 points";
+    }
 
+    @Override
+    public void terminer() {
+        if(this.isEgalite()){
+            getCombattants().forEach((combattant)->{
+                combattant.setPoints(combattant.getPoints() + 1);
+                combattant.setEgalites(combattant.getEgalites() + 1);
+            });
+        } else {
+            getCombattants().forEach((combattant)->{
+                if(combattant.equals(getGagnant())){
+                    combattant.setPoints(combattant.getPoints() + 3);
+                    combattant.setVictoires(combattant.getVictoires() + 1);
+                } else {
+                    combattant.setDefaits(combattant.getDefaits() + 1);
+                }
+            });
+        }
     }
 }
