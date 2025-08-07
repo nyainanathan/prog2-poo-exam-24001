@@ -56,6 +56,7 @@ public class LigueTest {
     public void match_amical_affecting_stats_ko(){
         assertEquals(3, combattant1.getVictoires());
         assertEquals(0, combattant2.getDefaits());
+        assertNull(matches.get(matches.size()-1).getGagnant());
     }
 
     @Test
